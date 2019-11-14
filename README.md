@@ -103,5 +103,11 @@ To view/run the demo, do as follows.
 4. Scan this QR code, and accept your Malaria Vaccine certification. Your certification is now tied to your uPort identity as seen in your mobile app.
 
 
+## Video of the app in action:
+
+You can find a video of what runnning the app looks like on YouTube at:
+https://youtu.be/jBIm76JQ_4s
+
+
 ## License
 This demo code and all of the materials in this repository are issued out free to use under the General Public License v. 3.0
