@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Load connect from CDN -->
+    <script src="https://unpkg.com/uport-connect/dist/uport-connect.js"></script>
+  </head>
+  <body>
+    <div id="msg">
+      Please give the module a few seconds to load...
+    </div>
+    <script type="text/javascript">
+     //////////////////////////////
+     //  Configure connect object
+     /////////////////////////////
+
+     const Connect = window.uportconnect
+     const uport = new Connect('UNICEF Vaccine Certification Authority')
+
+     const reqID = 'disclosureReq'
+
+     uport.requestDisclosure()
+
+     uport.onResponse('disclosureReq').then(res => {
+       json = JSON.stringify(res.payload)
+       console.log(json)
+       alert("Congratulations, you are now registered with the UNICEF Vaccine Certification Authority. \n Your DID identifier is: " + json + ".\n To receive your vaccine certification, click 'OK' and scan the new QR code with your uPort app.")
+       uport.sendVerification({exp: Math.floor(new Date().getTime() / 1000) + 30 * 24 * 60 * 60,
+                             claim: {'Malaria Vaccine issued by UNICEF Mozambique' : {'Issued' : `${new Date()}`}} 
+    
+    })
+
+     
+     })
+    </script>
+  </body>
+</html>
